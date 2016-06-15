@@ -1,12 +1,13 @@
 function antisocialMain() {
   //grab the game chat container to be shown or hidden
   gameChatContainer = document.getElementById('game-chat-container');
-  if (gameChatContainer == null) {
+  if (gameChatContainer == null) { // if not on a game page, just return early
     if (window.location.href.indexOf('/game/') != -1) {
-      // we're on a game page but it hasn't loaded yet, check back in 250 ms
+      // if we're on a game page but it hasn't loaded yet, still return early,
+      // but check back in 250 ms
       setTimeout(antisocialMain, 250);
     }
-    return; // if not on a game page, just return early
+    return;
   }
   //create a button with a text label for toggling chat visibility
   antisocialToggleButton = document.createElement('button');
@@ -14,9 +15,6 @@ function antisocialMain() {
   antisocialToggleButton.appendChild(antisocialToggleButtonLabel);
   antisocialToggleButton.className = 'btn btn-xs btn-default bold';
   antisocialToggleButton.id = 'antisocial-toggle-button'
-
-  //create a function for hiding the chat
-  //and a companion function for showing the chat
 
   antisocialHideChat(); // start chat hidden
 
