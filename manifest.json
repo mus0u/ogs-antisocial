@@ -1,7 +1,7 @@
 {
   "name": "OGS Antisocial Mode",
   "short_name": "OGS Antisocial",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Hides in-game chat on online-go.com.",
   "content_scripts": [
     { "matches": ["*://online-go.com/*"],
