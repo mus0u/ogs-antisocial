@@ -1,3 +1,5 @@
+var TIMEOUT = 100;
+
 function antisocialMain() {
   //grab the game chat container to be shown or hidden
   gameChatContainer = document.getElementById('game-chat-container');
@@ -5,7 +7,7 @@ function antisocialMain() {
     if (window.location.href.indexOf('/game/') != -1) {
       // if we're on a game page but it hasn't loaded yet, still return early,
       // but check back in 250 ms
-      setTimeout(antisocialMain, 250);
+      setTimeout(antisocialMain, TIMEOUT);
     }
     return;
   }
@@ -41,13 +43,13 @@ function antisocialDetectLocationChange() {
 
   antisocialCurrentLocation = window.location.href
   if (antisocialCurrentLocation.indexOf('/game/') != -1) {
-    setTimeout(antisocialMain, 250);
+    setTimeout(antisocialMain, TIMEOUT);
   }
 }
 
 window.onload = function() {
   antisocialMain();
   antisocialCurrentLocation = window.location.href;
-  setInterval(antisocialDetectLocationChange, 100);
+  setInterval(antisocialDetectLocationChange, TIMEOUT);
   console.log('OGS Antisocial Mode: loaded.');
 }
